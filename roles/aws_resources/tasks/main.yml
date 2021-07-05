@@ -13,9 +13,9 @@
  - debug:
       var: repo_reg.stdout_lines      
 
- - name: Terraform Apply for Sandbox Creation
+ - name: AWS Scripts for Resources List
    shell: "./aws_scripts.sh"
-   register: terraform_status
+   register: te_status
  - debug:
       msg: "Scripts Execution"
 
