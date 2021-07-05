@@ -1,0 +1,13 @@
+---
+ - hosts: localhost
+   connection: local
+   vars:
+   vars_files:
+    - resources.vault   
+   tasks:
+    - name: RHEL Falvour Linux Scripts Execution
+      debug:
+         msg: "RHEL Falvour Linux Scripts Execution Completed"
+   roles: 
+    - aws_resources
+

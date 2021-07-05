@@ -1,0 +1,26 @@
+#!/bin/bash
+# Name: Venkata Nagendra Dittakavi
+# Email: venkat.nagendra@capgemini.com
+# Shell Script to check for all the resources across all the regoins on AWS
+# Executes on RedHat or its Linux Flavours
+
+mkdir aws_data
+
+# Prepare scripts for each region and service
+{% for region_name in region_repo %}
+
+{% for service_name in service_repo %}
+echo "***************** Service: {{ service_name }} Region: {{ region_name }} *****************"
+aws-list-all query --region {{ region_name }} --service {{ service_name }} --directory ./data/
+{% endfor %}
+
+# Reading the Data for {{ region_name }} region
+aws-list-all show --verbose data/* >aws_data/{{ region_name }}.txt
+
+# Moving the Data for {{ region_name }} region
+mkdir aws_data/{{ region_name }}
+mv ./data/* aws_data/{{ region_name }}
+
+{% endfor %}
+
+echo "***************** Executed Across All Regions *****************"

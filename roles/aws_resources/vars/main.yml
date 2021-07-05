@@ -1,0 +1,11 @@
+---
+# vars file for aws_resources
+
+#region_repo:
+# - us-east-1
+# - us-west-1
+#
+#service_repo:
+# - ec2
+# - s3
+# - rds

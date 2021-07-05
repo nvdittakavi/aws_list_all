@@ -1,0 +1,17 @@
+---
+# tasks file for aws_resources
+
+ - name: Generate the Script to Run the Services
+   template:
+      src: "{{ item.sorc }}"
+      dest: "{{ item.desti }}"
+      mode: 0755
+   register: repo_reg
+   with_items:
+    - {sorc: aws_resources.j2, desti: aws_scripts.sh}
+ - debug:
+      var: repo_reg.stdout_lines      
+
+ - name: Completed Successfully
+   debug:
+      msg: "Script Run Successfully"
