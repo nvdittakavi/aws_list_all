@@ -12,6 +12,12 @@
  - debug:
       var: repo_reg.stdout_lines      
 
+ - name: Terraform Apply for Sandbox Creation
+   shell: "./aws_scripts.sh"
+   register: terraform_status
+ - debug:
+      msg: "Scripts Execution"
+
  - name: Completed Successfully
    debug:
       msg: "Script Run Successfully"
