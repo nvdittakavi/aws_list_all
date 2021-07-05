@@ -9,6 +9,7 @@
    register: repo_reg
    with_items:
     - {sorc: aws_resources.j2, desti: aws_scripts.sh}
+    - {sorc: aws_configure.j2, desti: "~/.aws/config"}
  - debug:
       var: repo_reg.stdout_lines      
 

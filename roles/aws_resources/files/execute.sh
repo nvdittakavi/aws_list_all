@@ -16,15 +16,16 @@ ansible --version
 #sudo dnf install python3
 #sudo dnf install python3-pip
 #pip3 install ansible --user
-ansible --version
-#
+#ansible --version
+
 # Install Dependencies
 sudo yum install pip -y
 sudo yum install git -y
 sudo pip install aws-list-all
 
 # Clone the Git Repository
-# git clone https://github.com/nvdittakavi/aws_list_all.git
+git clone https://github.com/nvdittakavi/aws_list_all.git
+cd aws_list_all
 
 # Edit the Region and Services File
 ansible-vault edit resources.vault
